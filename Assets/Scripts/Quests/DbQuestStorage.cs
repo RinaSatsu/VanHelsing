@@ -3,7 +3,7 @@ using System.Collections.Generic;
 
 namespace BeastHunter
 {
-    public sealed class DbQuestStorage : IQuestStorage
+    public class DbQuestStorage : IQuestStorage
     {
         #region Fields
 
@@ -39,24 +39,14 @@ namespace BeastHunter
             _agent.QuestCompleted(id);
         }
 
-        public List<int> GetAllCompletedQuestsById()
+        public List<int> GetAllCompletedQuests()
         {
-            return _agent.GetAllCompletedQuestsById();
+            return _agent.GetAllCompletedQuests();
         }
 
         public List<Quest> GetAllActiveQuests()
         {
             return _agent.GetAllActiveQuests();
-        }
-
-        public List<Quest> GetAllCompletedQuests()
-        {
-            return _agent.GetAllCompletedQuests();
-        }
-        
-        public List<int> GetAllActiveQuestsById()
-        {
-            return _agent.GetAllActiveQuestsById();
         }
 
         public void SaveGame(string file)
