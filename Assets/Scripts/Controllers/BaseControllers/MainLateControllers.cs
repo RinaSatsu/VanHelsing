@@ -4,9 +4,9 @@
     {
         #region ClassLifeCycles
 
-        public MainLateControllers(GameContext context, GameControllerParametersData controllerData)
+        public MainLateControllers(GameContext context)
         {
-            //TODO
+
         }
 
         #endregion

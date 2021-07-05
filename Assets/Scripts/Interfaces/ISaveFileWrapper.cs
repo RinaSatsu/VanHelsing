@@ -8,8 +8,7 @@ namespace BeastHunter
 
         void CreateNewSave(string file);
         void LoadSave(string file);
-        IEnumerable<int> GetCompletedQuestsId();
-        Dictionary<int, bool> GetCompletedQuests();
+        IEnumerable<int> GetCompletedQuests();
         Dictionary<int, int> GetActiveQuests();
         Dictionary<int, int> GetActiveObjectives();
         void SaveQuestLog(IEnumerable<Quest> quests, List<int> completeQuests);

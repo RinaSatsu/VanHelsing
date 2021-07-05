@@ -27,6 +27,14 @@ namespace BeastHunter
 
         public void OnAwake()
         {
+            var npcs = _context.GetTriggers(InteractableObjectType.Npc);
+            foreach (var trigger in npcs)
+            {
+                var dialogueBehavior = trigger as DialogueBehavior;
+                dialogueBehavior.OnFilterHandler += OnFilterHandler;
+                dialogueBehavior.OnTriggerEnterHandler += OnTriggerEnterHandler;
+                dialogueBehavior.OnTriggerExitHandler += OnTriggerExitHandler;
+            }
         }
 
         #endregion
@@ -36,6 +44,14 @@ namespace BeastHunter
 
         public void TearDown()
         {
+            var npcs = _context.GetTriggers(InteractableObjectType.Npc);
+            foreach (var trigger in npcs)
+            {
+                var dialogueBehavior = trigger as DialogueBehavior;
+                dialogueBehavior.OnFilterHandler -= OnFilterHandler;
+                dialogueBehavior.OnTriggerEnterHandler -= OnTriggerEnterHandler;
+                dialogueBehavior.OnTriggerExitHandler -= OnTriggerExitHandler;
+            }
         }
 
         #endregion

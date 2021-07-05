@@ -1,10 +1,9 @@
-﻿using System;
-using UnityEngine;
+﻿using UnityEngine;
 
 
 namespace BeastHunter
 {
-    [CreateAssetMenu(fileName = "NewData", menuName = "Dialogue/DialogueSystemData", order = 0)]
+    [CreateAssetMenu(fileName = "NewModel", menuName = "CreateModel/DialogueSystem", order = 0)]
     public sealed class DialogueSystemData : ScriptableObject
     {
         #region Fields
@@ -42,23 +41,20 @@ namespace BeastHunter
             }
         }
 
-        public void SelectAnswerById(EventArgs id)
-        {
-            SelectAnswer((id as IdArgs).Id);
-        }
-
         public void SelectAnswer(int buttonNumber)
         {
-           Services.SharedInstance.EventManager.TriggerEvent(GameEventTypes.DialogAnswerSelect, new DialogArgs(Model.DialogueNode[Model.CurrentNode].PlayerAnswers[buttonNumber].AnswerId, Model.NpcID));
+            EventManager.TriggerEvent(GameEventTypes.DialogAnswerSelect, new DialogArgs(Model.DialogueNode[Model.CurrentNode].PlayerAnswers[buttonNumber].AnswerId, Model.NpcID));
+
+           // Debug.Log($"id answer {Model.DialogueNode[Model.CurrentNode].PlayerAnswers[buttonNumber].AnswerId}, id npc  {Model.NpcID}");
 
             if (Model.DialogueNode[Model.CurrentNode].PlayerAnswers[buttonNumber].IsStartQuest)
             {
-                Services.SharedInstance.EventManager.TriggerEvent(GameEventTypes.QuestAccepted, new IdArgs(Model.DialogueNode[Model.CurrentNode].PlayerAnswers[buttonNumber].QuestId));
+                EventManager.TriggerEvent(GameEventTypes.QuestAccepted, new IdArgs(Model.DialogueNode[Model.CurrentNode].PlayerAnswers[buttonNumber].QuestId));
             }
 
             if (Model.DialogueNode[Model.CurrentNode].PlayerAnswers[buttonNumber].IsEndQuest)
             {
-                Services.SharedInstance.EventManager.TriggerEvent(GameEventTypes.QuestReported, new IdArgs(Model.DialogueNode[Model.CurrentNode].PlayerAnswers[buttonNumber].QuestId));
+                EventManager.TriggerEvent(GameEventTypes.QuestReported, new IdArgs(Model.DialogueNode[Model.CurrentNode].PlayerAnswers[buttonNumber].QuestId));
             }
 
             if (Model.DialogueNode[Model.CurrentNode].PlayerAnswers[buttonNumber].IsEnd)
@@ -97,7 +93,27 @@ namespace BeastHunter
                     {
                         if (buttonNum - 1 < Model.DialogueNode[Model.CurrentNode].PlayerAnswers.Count)
                         {
-                            SelectAnswer(buttonNum - 1);
+                            switch (buttonNum)
+                            {
+                                case 1:
+                                    SelectAnswer(0);
+                                    break;
+
+                                case 2:
+                                    SelectAnswer(1);
+                                    break;
+
+                                case 3:
+                                    SelectAnswer(2);
+                                    break;
+
+                                case 4:
+                                    SelectAnswer(3);
+                                    break;
+
+                                default:
+                                    return;
+                            }
                         }
                     }
                 }

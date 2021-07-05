@@ -36,7 +36,7 @@ namespace BeastHunter
         public void AddAmount(int amount)
         {
             CurrentAmount += amount;
-            Services.SharedInstance.EventManager.TriggerEvent(GameEventTypes.QuestTaskUpdated, new TaskUpdatedArgs(Id, Description, CurrentAmount, NeededAmount));
+            EventManager.TriggerEvent(GameEventTypes.QuestTaskUpdated, new TaskUpdatedArgs(Id, Description, CurrentAmount, NeededAmount));
         }
 
         #endregion

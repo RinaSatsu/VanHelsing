@@ -14,7 +14,6 @@ namespace BeastHunter
         private const string NONCOLLIDABLE = "Non-Collidable";
         private const string GROUND = "Ground";
         private const string UI = "UI";
-        private const string PLAYER = "Player";
 
         public const int DEFAULT_LAYER = 0;
 
@@ -29,7 +28,6 @@ namespace BeastHunter
         public static int GroundLayer { get; }
         public static int UiLayer { get; }
         public static int NonCollidableLayer { get; }
-        public static int PlayerLayer { get; }
 
         #endregion
 
@@ -44,7 +42,6 @@ namespace BeastHunter
             GroundLayer = LayerMask.GetMask(GROUND);
             UiLayer = LayerMask.GetMask(UI);
             NonCollidableLayer = LayerMask.NameToLayer(NONCOLLIDABLE);
-            PlayerLayer = LayerMask.NameToLayer(PLAYER);
         }
 
         #endregion

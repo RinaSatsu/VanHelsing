@@ -43,7 +43,7 @@ namespace BeastHunter
             AnswerButtons = prefab.GetComponentsInChildren<Button>();
             DialogueCanvas.enabled = false;
 
-            Services.SharedInstance.EventManager.StartListening(GameEventTypes.AnswerButtonClicked, dialogueSystemData.SelectAnswerById);
+            ButtonClick.MouseClickEvent += dialogueSystemData.SelectAnswer;
             ButtonClick.KeyBoardButtonDownEvent += dialogueSystemData.ButtonClickNumber;
             StartDialogueData.ShowCanvasEvent += dialogueSystemData.CanvasSwitcher;
         }
@@ -53,7 +53,7 @@ namespace BeastHunter
 
         #region Metods
 
-        public void Execute()
+        public void Initilize()
         {
         }
 

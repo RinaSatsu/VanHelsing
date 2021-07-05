@@ -59,7 +59,7 @@ namespace BeastHunter
         {
             _dbPath = GetDatabasePath();
             _connection = new SQLiteConnection("Data Source=" + _dbPath);
-         //   Services.SharedInstance.EventManager.StartListening(GameEventTypes.GameExit, CloseConnection); TODO: triggerEvent GameExit;
+            EventManager.StartListening(GameEventTypes.GameExit, CloseConnection);
         }
 
         private static void CloseConnection(EventArgs eventArgs = null)
@@ -72,7 +72,7 @@ namespace BeastHunter
 #if UNITY_EDITOR
             return Path.Combine(Application.streamingAssetsPath, FILE_NAME);
 #elif UNITY_STANDALONE
-                var filePath = Path.Combine(Application.dataPath, FILE_NAME);
+                var filePath = Path.Combine(Application.dataPath, FileName);
                 if(!File.Exists(filePath)) UnpackDatabase(filePath);
                 return filePath;
 #endif

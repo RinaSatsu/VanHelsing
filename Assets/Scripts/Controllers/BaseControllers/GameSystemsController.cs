@@ -4,11 +4,11 @@
     {
         #region ClassLifeCycles
 
-        public GameSystemsController(GameContext context, GameControllerParametersData controllerData)
+        public GameSystemsController(GameContext context)
         {
-            AddUpdateFeature(new MainControllers(context, controllerData));
-            AddLateUpdateFeature(new MainLateControllers(context, controllerData));
-            AddFixedUpdateFeature(new MainFixedControllers(context, controllerData));
+            AddUpdateFeature(new MainControllers(context));
+            AddLateUpdateFeature(new MainLateControllers(context));
+            AddFixedUpdateFeature(new MainFixedControllers(context));
         }
 
         #endregion
