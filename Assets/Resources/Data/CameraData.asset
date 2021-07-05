@@ -1,0 +1,46 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5b04d53ab9121e54d9f49e5d48d70bf9, type: 3}
+  m_Name: CameraData
+  m_EditorClassIdentifier: 
+  _characterCamera: {fileID: 5296010943117555874, guid: 331dcbff4c90e7249a42146bd6820d5b,
+    type: 3}
+  _characterCameraName: CharacterCamera
+  _characterFreeLookCameraSettings:
+    _characterFreelookCamera: {fileID: 1046887095545056062, guid: ffe73034ef64698439bb105d6f12a131,
+      type: 3}
+    _characterFreelookCameraName: CharacterFreeLookCamera
+    _characterFreelookCameraJSONFilePath: Prefabs/Camera/FreeLookCameraSettings
+    _characterFreelookCameraBlendTime: 0.2
+  _characterTargetingCameraSettings:
+    _characterTargetCamera: {fileID: 7502929037863473527, guid: 754e3a8556acf0a43814c84409669089,
+      type: 3}
+    _characterTargetCameraName: CharacterTargetCamera
+    _characterTargetCameraJSONFilePath: Prefabs/Camera/TargetingCameraSettings
+    _characterTargetCameraBlendTime: 1
+  _characterAimingCameraSettings:
+    _characterAimingCamera: {fileID: 7502929037863473527, guid: 93d64c43965a1ee4394b13e780d22afa,
+      type: 3}
+    _characterAimingCameraName: CharacterAimingCamera
+    _characterAimingCameraJSONFilePath: Prefabs/Camera/AimingCameraSettings
+    _characterAimingCameraBlendTime: 1
+    _aimProjectileLinePrefab: {fileID: 2890280644428487904, guid: 3a80d21ca1e78194c8abdb87e28d79a0,
+      type: 3}
+    _aimDotPrefab: {fileID: 7345637511314836422, guid: a84a8d1075b240d48b160938e239e178,
+      type: 3}
+    _cameraTargetName: AimingCameraTarget
+    _cameraTargetHeight: 1.5
+    _cameraTargetForwardMovementDistance: 10
+    _cameraTargetSpeedX: 0
+    _cameraTargetSpeedY: 6
+    _cameraTargetDistanceMoveX: {x: 0, y: 0}
+    _cameraTargetDistanceMoveY: {x: -2, y: 6}
